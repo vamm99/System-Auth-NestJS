@@ -1,0 +1,15 @@
+services:
+  postgres-auth:
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    container_name: postgres_auth
+    environment:
+      POSTGRES_USER: auth
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: dbauth
+    volumes:
+      - postgres_auth_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_auth_data:
